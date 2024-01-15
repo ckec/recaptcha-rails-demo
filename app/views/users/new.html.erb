@@ -6,9 +6,8 @@
     <%= turbo_frame_tag 'steps_frame' do %>
       <%= render "form", user: @user %>
     <% end %>
-    <br>
-    <div>
-      <%= link_to "Show all users", users_path %>
-    </div>
+  </div>
+  <div class="show-user-btn">
+    <%= link_to "Show all users", users_path %>
   </div>
 </div>

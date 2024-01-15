@@ -24,10 +24,12 @@
 .center-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 500px;
-  border: 2px solid red; /* Adjust the border style as needed */
-  padding: 20px; /* Add padding if necessary */
+  height: 500px;
+  border: 2px solid red;
+  padding: 20px;
 }
 
 .container {
@@ -41,4 +43,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+}
+
+.show-user-btn {
+  margin-top: 20px;
 }
