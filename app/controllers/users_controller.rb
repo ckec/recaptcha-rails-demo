@@ -23,8 +23,7 @@ class UsersController < ApplicationController
     user_attributes = session[:user_attributes] || {}
     @user = User.new(user_attributes.merge(user_params))
 
-    check = (verify_recaptcha action: 'create_user', minimum_score: 0.7, secret_key: ENV['RECAPTCHA_SECRET_V3']) ||
-    (verify_recaptcha model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
+    check = verify_recaptcha model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY']
     
     if check && @user.save
       #render success
