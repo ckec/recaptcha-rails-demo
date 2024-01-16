@@ -27,11 +27,11 @@ class UsersController < ApplicationController
     (verify_recaptcha model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
     
     if check && @user.save
-
+      #render success
     else
       @user.validate
       @user.errors.add(:base, t('recaptcha.errors.verification_failed')) unless check 
-      render :new
+      render turbo_stream: turbo_stream.update('content', partial: 'mobile_step_form')
     end
   end
   
