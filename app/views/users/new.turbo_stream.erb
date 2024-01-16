@@ -1,5 +1,4 @@
-<%= turbo_stream.replace dom_id(@user), partial: 'users/form', locals: {user: @user} %>
-
+<%= turbo_stream.replace dom_id(@user), partial: 'users/mobile_step_form', locals: {user: @user} %>
 <%= turbo_stream.replace 'recaptcha' do %>
   <div
     id='recaptchaV2'

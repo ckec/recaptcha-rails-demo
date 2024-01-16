@@ -5,5 +5,6 @@ export default class extends Controller {
 
   initialize() {
     grecaptcha.render("recaptchaV2", { sitekey: this.siteKeyValue } )
+
   }
 }

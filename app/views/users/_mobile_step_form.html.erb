@@ -1,0 +1,26 @@
+<%= turbo_frame_tag @user, target: '_top' do %>
+  <%= form_with(model: @user) do |form| %>
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="container">
+      <%= form.label :phone_number, style: "display: block" %>
+      <%= form.text_field :phone_number %>
+    </div>
+    <div class="center-recaptcha">
+      <%= turbo_frame_tag 'recaptcha' do %>
+        <%= recaptcha_v3 action: 'create_user', site_key: ENV['RECAPTCHA_KEY_V3'], turbolinks: true %>
+      <% end %>
+    </div>
+    <div class="container">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% end %>
