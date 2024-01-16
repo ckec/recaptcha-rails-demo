@@ -1,4 +1,3 @@
-<!--<div id="steps_frame">-->
 <%= form_with(model: @user, url: go_to_mobile_step_path, local: 'true') do |form| %>
   <% if @user.errors.any? %>
     <div style="color: red">
@@ -22,4 +21,3 @@
     <%= form.submit 'Go to Next Step' %>
   </div>
 <% end %>
-<!--</div>-->

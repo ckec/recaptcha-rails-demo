@@ -2,10 +2,8 @@
   <div>
     <h1>Create user</h1>
   </div>
-  <div class="center-container">
-    <%= turbo_frame_tag 'steps_frame' do %>
-      <%= render "initial_step" %>
-    <% end %>
+  <div class="center-container" id="content">
+    <%= render "initial_step" %>
   </div>
   <div class="show-user-btn">
     <%= link_to "Show all users", users_path %>

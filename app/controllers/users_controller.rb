@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     (verify_recaptcha model: @user, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
     
     if check && @user.save
-      render turbo_stream: turbo_stream.update('steps_frame', partial: 'success_frame')
+
     else
       @user.validate
       @user.errors.add(:base, t('recaptcha.errors.verification_failed')) unless check 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def go_to_mobile_step
     @user = User.new user_params
     session[:user_attributes] = @user.attributes
-    render turbo_stream: turbo_stream.update('steps_frame', partial: 'mobile_step_form')
+    # render turbo_stream: turbo_stream.update('steps_frame', partial: 'mobile_step_form')
   end
   
 
