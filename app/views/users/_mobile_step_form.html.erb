@@ -14,8 +14,10 @@
       <%= form.label :phone_number, style: "display: block" %>
       <%= form.text_field :phone_number %>
     </div>
-    <div class="center-recaptcha" data-controller="recaptcha-v2" data-recaptcha-v2-site-key-value="<%= ENV['RECAPTCHA_SITE_KEY'] %>" >
-      <div id='recaptchaV2'></div>
+    <div class="center-recaptcha">
+      <%= turbo_frame_tag 'recaptcha' do %>
+        <%= recaptcha_v3 action: 'create_user', site_key: ENV['RECAPTCHA_KEY_V3'], turbolinks: true %>
+      <% end %>
     </div>
     <div class="container">
       <%= form.submit %>
